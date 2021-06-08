@@ -63,15 +63,33 @@ def trapezoid(a, b) -> float:
                + function(a + (i + 1) * dx)) / 2
 
     area *= dx
-
+    print(area)
     return round(area, 5)
 
 
 def simpson(a, b) -> float:
     '''simpson method'''
-    pass
+    n = 10000
+    dx = (b - a) / n
+    x_int = np.arange(a, b, dx)
+
+    evens = odds = 0
+
+    for i in range(1, n, 2):
+        odds += function(x_int[i])
+
+    for i in range(2, n - 1, 2):
+        evens += function(x_int[i])
+
+    area = (dx / 3) * (function(x_int[0])
+            + 4 * odds + 2 * evens + function(x_int[-1]))
+
+    print(area)
+    return area
 
 
-left_rectangle(1, 2)
+# left_rectangle(1, 2)
 # right_rectangle(1, 2)
 # middle_rectange(1, 2)
+# trapezoid(1, 2)
+# simpson(1, 2)
