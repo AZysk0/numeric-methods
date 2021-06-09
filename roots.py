@@ -7,7 +7,8 @@ eps = 0.0001
 f = lambda x: x ** 3 + 2 * x ** 2 - 4 * x + 1
 # derivative definition
 derivative = lambda x: (f(x + eps) - f(x)) / eps
-
+# 2nd order derivative
+derivative2 = lambda x: (f(x + eps) - 2 * f(x) + f(x - eps)) / (eps ** 2)
 
 def find_extrema(x):
     '''
@@ -22,16 +23,6 @@ def find_extrema(x):
            extrema += [x[i]]
     extrema += [x[-1]]
     return extrema
-
-
-def newton(a, b):
-    '''
-    tangent line method
-    '''
-    if f(a) * f(b) > 0: return None
-    eps = 0.0001 # root precision
-
-    return
 
 
 def bisection(low, high):
@@ -56,13 +47,32 @@ def bisection(low, high):
         return mid
 
 
-def roots(extr):
+def newton(a, b):
+    '''
+    tangent line method
+    '''
+    if f(a) * f(b) > 0: return None
+    else:
+        eps = 0.0001 # root precision
+        return
+
+
+def biroots(extr):
     root = []
     for i in range(len(extr) - 1):
         x0 = bisection(extr[i], extr[i + 1])
         if x0 != None:
             root += [x0]
 
+    return root
+
+
+def newroots(extr):
+    root = []
+    for i in range(len(extr) - 1):
+        x0 = newton(extr[i], extr[i + 1])
+        if x0 != None:
+            root += [x0]
     return root
 
 x = np.arange(-4, 2, 0.01)
@@ -72,7 +82,8 @@ y = f(x)
 extr = find_extrema(x)
 print(extr)
 #
-print(roots(extr))
+print(biroots(extr))
+print(newroots(extr))
 
 fig, ax = plt.subplots()
 ax.plot(x, y)
