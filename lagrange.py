@@ -14,7 +14,7 @@ print(coefs)
 
 
 # func = lambda x: coefs[0] * x ** 3 + coefs[1] * x ** 2  + coefs[2] * x + coefs[3]
-def func(x):
+def func(x): # now degree of intepolation depends on coefficients qty
     res = 0
     power = len(coefs) - 1
     for coef in coefs:
