@@ -14,8 +14,8 @@ coefs = Polynomial(poly).coef
 func = lambda x: coefs[0] * x ** 3 + coefs[1] * x ** 2  + coefs[2] * x + coefs[3]
 
 # answers #########
-x_ans = np.array([-0.5, 0.5, 1.5, 2.5])
-y_ans = func(x_ans)
+x_ans = np.array([-0.5, 0.5, 1.5, 2.5]) # answer arguments
+y_ans = func(x_ans)                     # answer function value
 ###################
 
 print(y_ans)
