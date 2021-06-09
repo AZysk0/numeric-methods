@@ -54,7 +54,13 @@ def newton(a, b):
     if f(a) * f(b) > 0: return None
     else:
         eps = 0.0001 # root precision
-        return
+
+        x0 = b if f(a) > f(b) else a
+        x1 = x0 - f(x0) / derivative(x0)
+        while abs(f(x1)) > eps:
+            x0 = x1
+            x1 = x0 - f(x0) / derivative(x0)
+        return x1
 
 
 def biroots(extr):
