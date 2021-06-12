@@ -17,29 +17,35 @@ def diff_table(x, y):
     return coef
 
 
-def newton_poly():
+def newton_inter(x):
     '''
     x_data: interpolation points
     newton interpolate polynomial at x
     '''
+    h = 0.005
+
+
     return
 
 
-x = np.arange(0.15, 0.61, 0.05)
+x = np.arange(0.101, 0.156, 0.005)
 print(x)
-y = np.array([  0.860,
-                0.818,
-                0.778,
-                0.740,
-                0.704,
-                0.670,
-                0.637,
-                0.606,
-                0.576,
-                0.548,])
+y = np.array([  1.2618,
+                1.2764,
+                1.2912,
+                1.3061,
+                1.3213,
+                1.3366,
+                1.3520,
+                1.3677,
+                1.3835,
+                1.3995,
+                1.4157,])
 
 a = diff_table(x, y)#[0, :]
 print(a)
+print(newton_inter(0.104))
+print(newton_inter(0.133))
 
 fig, ax = plt.subplots()
 ax.scatter(x, y)
