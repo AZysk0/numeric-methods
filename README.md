@@ -5,7 +5,6 @@ euler() for Euler's methods</br>
 euler_cauchy() for Euler-Cauchy method
 
 # horner.py
-1 string: P(x) coefficients</br>
 1 column: P(x) arguments(x)</br>
 last column: solution for P(x)
 
